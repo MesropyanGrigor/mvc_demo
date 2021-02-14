@@ -11,13 +11,13 @@ class TestForm(TestCase):
     def setUp(self):
         """Setuping before testing"""
         self.u_obj = User.objects.create(first_name='T_Name', surname='S_Name',
-                                         phone_number=99999999,
+                                         phone_number=9999999999,
                                          email='example@example.com',
                                          country='Armenia', city='Yerevan',
                                          street='the best')
 
     def test_is_valid_User(self):
-        print("testing")
+        #print("testing")
         data = {'first_name': self.u_obj.first_name,
                 'surname' : self.u_obj.surname,
                 'phone_number' : self.u_obj.phone_number,
@@ -42,3 +42,16 @@ class TestForm(TestCase):
         form = FormOrderItem(data=data)
         form.instance.order = o_obj
         self.assertTrue(form.is_valid())
+
+    def test_User_dot_clean(self):
+        data = {'first_name': self.u_obj.first_name,
+                'surname' : self.u_obj.surname,
+                'phone_number' : 12345678,
+                'email' :  "example",
+                'country' : self.u_obj.country,
+                'city' : self.u_obj.city,
+                'street' : self.u_obj.street}
+        form = FormUser(data=data)
+        form.is_valid()
+        #breakpoint()
+        self.assertTrue(len(list(form._errors.values())) == 2)

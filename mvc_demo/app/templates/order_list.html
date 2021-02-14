@@ -2,15 +2,15 @@
 <head>
 <style>
     table, td {
-        border: 1px solid black;
+        border: 2px solid black;
         background-color: azure;
     }
     th {
-    border: 1px solid rgb(122, 122, 122);
-    padding: 10px;
-    background-color: #696969;
-    color: #fff;
-    font:large;
+        border: 1px solid rgb(122, 122, 122);
+        padding: 10px;
+        background-color: #696969;
+        color: #fff;
+        font:large;
     }
 </style>
 </head>
@@ -37,7 +37,7 @@
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="7" class=" text-center alert alert-danger">No Order Found</td>
+                    <td colspan="10" class=" text-center alert alert-danger" style="text-align: center; font-size: 50px;">No Order Found</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -53,3 +53,4 @@
         })
     })
 </script>
+

@@ -21,8 +21,9 @@ from mvc_demo.app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('order/', views.order),
-    path('ordered/', views.ordered),
-    path('temp/', views.temp),
-    path('update/', views.update),
-    path('delete/<int:oid>', views.delete, name='delete')
+    path('fill/', views.adding_data),
+    #path('ordered/', views.ordered),
+    path('order_list/', views.temp),
+    #path('update/', views.update),
+    #path('delete/<int:oid>', views.delete, name='delete')
 ]
