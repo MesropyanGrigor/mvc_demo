@@ -1,26 +1,28 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 #null=true means use value when needed
 
 class User(models.Model):
-    """User table"""
+    """User Model"""
     id_n = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
+    #id_n = models.CharField(primary_key=True, max_length=12)
+    first_name = models.CharField(max_length=255, validators=[MinLengthValidator(2)])
+    surname = models.CharField(max_length=255, validators=[MinLengthValidator(2)])
     phone_number = models.BigIntegerField()
     email = models.EmailField(max_length=255)
     country = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
-    street = models.CharField(max_length=255)
+    street = models.CharField(max_length=255, null=True)
 
 class Order(models.Model):
-    """Order table"""
+    """Order Model"""
     order_id = models.AutoField(primary_key=True)
     order_date = models.DateField(auto_now=True)
     #deleting User will delete also Order 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class OrderItem(models.Model):
-    """OrderItem table"""
+    """OrderItem Model"""
     description = models.CharField(max_length=255)
     price = models.FloatField()
     quantity = models.IntegerField()

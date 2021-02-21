@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from mvc_demo.app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('order/', views.order),
+    path('order/', views.order, name='order'),
     path('fill/', views.adding_data),
+    path('order_list/', views.order_list, name='order_list'),
     #path('ordered/', views.ordered),
-    path('order_list/', views.temp),
     #path('update/', views.update),
     #path('delete/<int:oid>', views.delete, name='delete')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

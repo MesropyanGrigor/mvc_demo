@@ -57,7 +57,7 @@ ROOT_URLCONF = 'mvc_demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [join(BASE_DIR, 'app', 'templates'), join(BASE_DIR, 'app')],
+        'DIRS': [join(BASE_DIR, 'app', 'templates'), join(BASE_DIR, 'app'), join(BASE_DIR, 'static')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'mvc_demo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'data_base',
+        'NAME': 'data_base_new',
         'PASSWORD' : 'grespost',
         'PORT' : '5432',
         'USER' : 'postgres'
@@ -124,3 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = join(BASE_DIR, 'app', 'static')
+
+#STATICFILES_DIRS =[
+#    join(BASE_DIR, 'static'),
+#]

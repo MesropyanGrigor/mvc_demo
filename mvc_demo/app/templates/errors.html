@@ -1,0 +1,18 @@
+{% load static %}
+<title>Submit Form Information</title>  
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+{% if data %}
+    <div class='inner'>
+        <h2>There were some errors in the information you entered.<br> Please correct the following</h2>
+        <br><br>
+        <ul>
+            {% for field, error in data.items %}
+                <div class="alert alert-danger">
+                    <li>{{field}}:{{ error }}</li>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <h2>Order is submitted</h2>
+{% endif %}
