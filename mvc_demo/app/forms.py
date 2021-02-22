@@ -43,7 +43,7 @@ class FormUser(forms.ModelForm):
                   'country', 'city', 'street']
         name2field = {#'User ID' : 'id_n',
                       'First Name' : 'first_name',
-                      'Middle Name' : 'surname',
+                      'Last Name' : 'surname',
                       'Phone Number' : 'phone_number',
                       'E-mail' : 'email',
                       'Country' : 'country',

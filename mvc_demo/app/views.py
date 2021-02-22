@@ -69,7 +69,7 @@ def add_data(data_):
     orderitem_form.save()
 
 def get_rows_in_str():
-    """Providing all datat in the database as list of list
+    """Providing all data in the database as a list of list,
         each list is representing a row in the database"""
     rows = []
     for row in OrderItem.objects.all():
@@ -153,7 +153,6 @@ def adding_data(request):
         data.update(tmp)
         add_data(data)
     return HttpResponse("<h1>Data are filled</h1>")
-    #print(file_)
     #with open(file_, 'r') as f_obj:
     #    reader = csv.reader(f_obj)
     #    for row in reader:
